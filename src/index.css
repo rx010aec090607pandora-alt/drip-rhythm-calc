@@ -4,9 +4,7 @@
 
 @layer base {
   body {
-    @apply bg-gray-900 text-gray-100 antialiased selection:bg-indigo-500 selection:text-white overscroll-none overflow-x-hidden;
-    /* モバイルブラウザでのスワイプナビゲーションなどを防ぐための設定 */
-    touch-action: pan-y;
+    @apply bg-gray-900 text-gray-100 antialiased selection:bg-indigo-500 selection:text-white;
   }
 }
 

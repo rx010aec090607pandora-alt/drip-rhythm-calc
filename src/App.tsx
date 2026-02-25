@@ -183,7 +183,7 @@ export default function App() {
         : 'radial-gradient(circle at 50% 10%, rgba(168,85,247,0.5) 0%, transparent 70%)';
 
     return (
-        <div className={`min-h-[100dvh] w-full flex flex-col font-sans overflow-x-hidden max-w-md mx-auto relative shadow-2xl transition-colors duration-500 ${isPlaying ? 'bg-gray-900' : 'bg-gray-950'}`}>
+        <div className={`min-h-[100dvh] w-full flex flex-col font-sans max-w-md mx-auto relative shadow-2xl transition-colors duration-500 ${isPlaying ? 'bg-gray-900' : 'bg-gray-950'}`}>
             {/* 動的グラデーション背景（フラッシュ・モード連動） */}
             <div
                 className={`absolute inset-0 pointer-events-none transition-opacity duration-150 ${flash ? 'opacity-30' : (isPlaying ? 'opacity-5' : 'opacity-0')}`}
