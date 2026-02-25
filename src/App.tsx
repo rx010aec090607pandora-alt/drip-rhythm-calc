@@ -183,7 +183,7 @@ export default function App() {
         : 'radial-gradient(circle at 50% 10%, rgba(168,85,247,0.5) 0%, transparent 70%)';
 
     return (
-        <div className={`h-[100dvh] w-full flex flex-col font-sans overflow-hidden max-w-md mx-auto relative shadow-2xl transition-colors duration-500 ${isPlaying ? 'bg-gray-900' : 'bg-gray-950'}`}>
+        <div className={`min-h-[100dvh] w-full flex flex-col font-sans overflow-x-hidden max-w-md mx-auto relative shadow-2xl transition-colors duration-500 ${isPlaying ? 'bg-gray-900' : 'bg-gray-950'}`}>
             {/* 動的グラデーション背景（フラッシュ・モード連動） */}
             <div
                 className={`absolute inset-0 pointer-events-none transition-opacity duration-150 ${flash ? 'opacity-30' : (isPlaying ? 'opacity-5' : 'opacity-0')}`}
@@ -207,7 +207,7 @@ export default function App() {
             </header>
 
             {/* メインコンテンツ */}
-            <main className="flex-1 overflow-y-auto px-5 py-6 space-y-6 relative z-10 flex flex-col">
+            <main className="flex-1 px-5 py-6 space-y-6 relative z-10 flex flex-col">
 
                 {/* === メイン情報：計算結果リズム === */}
                 <div className={`relative backdrop-blur-xl rounded-3xl p-6 border shadow-2xl overflow-hidden transition-all duration-300 ${activeMode === 'target' ? 'bg-indigo-900/20 border-indigo-500/30' : 'bg-gray-800/40 border-gray-700/50'}`}>
@@ -360,8 +360,8 @@ export default function App() {
                 <div className="h-4" /> {/* Spacer */}
             </main>
 
-            {/* === フッター固定: 片手操作用タップ計測エリア === */}
-            <div className={`flex-none relative z-20 backdrop-blur-2xl border-t p-5 pt-6 pb-safe rounded-t-[2.5rem] shadow-[0_-10px_40px_rgba(0,0,0,0.5)] transition-colors duration-300 ${activeMode === 'measured' ? 'bg-purple-900/10 border-purple-500/20' : 'bg-gray-800/90 border-gray-700/50'}`}>
+            {/* === フッター: 片手操作用タップ計測エリア (スクロール表示) === */}
+            <div className={`relative z-20 backdrop-blur-2xl border-t p-5 pt-6 pb-safe rounded-t-[2.5rem] shadow-[0_-10px_40px_rgba(0,0,0,0.5)] transition-colors duration-300 ${activeMode === 'measured' ? 'bg-purple-900/10 border-purple-500/20' : 'bg-gray-800/90 border-gray-700/50'}`}>
 
                 {/* フラッシュ用トップボーダー（実測モード時） */}
                 <div className={`absolute top-0 left-0 w-full h-1 rounded-t-[2.5rem] transition-colors duration-100 ${flash && activeMode === 'measured' ? 'bg-purple-400 shadow-[0_0_20px_rgba(168,85,247,1)]' : 'bg-transparent'}`} />
