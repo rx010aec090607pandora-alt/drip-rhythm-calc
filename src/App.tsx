@@ -30,6 +30,7 @@ export default function App() {
     const flowRate = volume / time;
     const targetDropsPerMin = (flowRate * dripFactor) / 60;
     const targetDropsPer10Sec = targetDropsPerMin / 6;
+    const targetDropsPer1Sec = targetDropsPerMin / 60;
 
     // 現在メトロノームで使うべき滴下数（実測モードで未計測なら仮で目標値を入れるか保護する）
     const currentDropsPerMin = activeMode === 'target'
@@ -228,10 +229,13 @@ export default function App() {
                                 {isFinite(targetDropsPerMin) ? targetDropsPerMin.toFixed(1) : '0'} <span className="text-base font-normal text-gray-400 ml-1 tracking-normal">滴/分</span>
                             </p>
                         </div>
-                        <div className="w-px h-8 bg-gray-700/50 mx-2" />
-                        <div className="flex-1 text-right">
+                        <div className="w-px h-12 bg-gray-700/50 mx-2" />
+                        <div className="flex-1 text-right flex flex-col justify-end">
+                            <p className="text-sm font-bold text-indigo-300 opacity-60 mb-1">
+                                {isFinite(targetDropsPer1Sec) ? targetDropsPer1Sec.toFixed(2) : '0'} <span className="text-[10px] font-normal text-gray-400 ml-1">滴/秒</span>
+                            </p>
                             <p className="text-xl font-bold text-indigo-400 opacity-80">
-                                {isFinite(targetDropsPer10Sec) ? targetDropsPer10Sec.toFixed(1) : '0'} <span className="text-xs font-normal text-gray-400 ml-1">滴／10秒</span>
+                                {isFinite(targetDropsPer10Sec) ? targetDropsPer10Sec.toFixed(1) : '0'} <span className="text-xs font-normal text-gray-400 ml-1">滴/10秒</span>
                             </p>
                         </div>
                     </div>
